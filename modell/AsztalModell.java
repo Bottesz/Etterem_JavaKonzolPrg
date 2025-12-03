@@ -4,11 +4,11 @@ package modell;
 import java.util.ArrayList;
 
 
-public class Asztal {
+public class AsztalModell {
     private String nev;
-    private ArrayList<Etel>etelek;
+    private ArrayList<EtelModell>etelek;
 
-    public Asztal(String nev) {
+    public AsztalModell(String nev) {
         this.nev = nev;
         this.etelek = new ArrayList<>();
     }
@@ -17,19 +17,19 @@ public class Asztal {
         return nev;
     }
 
-    public ArrayList<Etel> getEtelek() {
+    public ArrayList<EtelModell> getEtelek() {
         return etelek;
     }
     
     
-    public void etelekListaba(Etel etel){
+    public void etelekListaba(EtelModell etel){
         etelek.add(etel);
     
     }
     
     public int osszeg(){
         int sum = 0;
-        for (Etel e : etelek) {
+        for (EtelModell e : etelek) {
             sum += e.getAr();
         }
         return sum;

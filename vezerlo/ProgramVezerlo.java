@@ -3,17 +3,17 @@ package vezerlo;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
-import modell.Asztal;
-import modell.Etel;
-import nezet.EtelKiiro;
+import modell.AsztalModell;
+import modell.EtelModell;
+import nezet.EtelKiiroNezet;
 
-public class Program {
+public class ProgramVezerlo {
 
-    private ArrayList<Asztal> asztalok = new ArrayList<>();
+    private ArrayList<AsztalModell> asztalok = new ArrayList<>();
 
     
-    public ArrayList<Etel> beolvasEtelek(String fajlnev) {
-        ArrayList<Etel> etelek = new ArrayList<>();
+    public ArrayList<EtelModell> beolvasEtelek(String fajlnev) {
+        ArrayList<EtelModell> etelek = new ArrayList<>();
         try {
             Scanner sc = new Scanner(new File(fajlnev));
             while (sc.hasNext()) {
@@ -22,7 +22,7 @@ public class Program {
                     String[] resz = sor.split("\\|");
                     String nev = resz[0].trim();
                     int ar = Integer.parseInt(resz[1].trim());
-                    etelek.add(new Etel(nev, ar));
+                    etelek.add(new EtelModell(nev, ar));
                 }
             }
             sc.close();
@@ -33,17 +33,17 @@ public class Program {
     }
 
     
-    public void beolvasAsztalok(String fajlnev, ArrayList<Etel> etelek) {
+    public void beolvasAsztalok(String fajlnev, ArrayList<EtelModell> etelek) {
         try {
             Scanner sc = new Scanner(new File(fajlnev));
-            Asztal aktualis = null;
+            AsztalModell aktualis = null;
 
             while (sc.hasNextLine()) {
                 String sor = sc.nextLine().trim();
                 if (sor.isEmpty()) continue;
 
                 
-                aktualis = new Asztal(sor);
+                aktualis = new AsztalModell(sor);
                 asztalok.add(aktualis);
 
                 
@@ -52,7 +52,7 @@ public class Program {
                     if (etelSor.isEmpty()) break; 
 
                     
-                    for (Etel e : etelek) {
+                    for (EtelModell e : etelek) {
                         if (e.getNev().equals(etelSor)) {
                             aktualis.etelekListaba(e);
                             break;
@@ -70,10 +70,10 @@ public class Program {
 
     
     public void futtat() {
-        ArrayList<Etel> etelek = beolvasEtelek("src/etelek.txt");
+        ArrayList<EtelModell> etelek = beolvasEtelek("src/etelek.txt");
         beolvasAsztalok("src/asztalok.txt", etelek);
 
-        EtelKiiro kiiro = new EtelKiiro();
+        EtelKiiroNezet kiiro = new EtelKiiroNezet();
         kiiro.kiir(asztalok);
     }
 }

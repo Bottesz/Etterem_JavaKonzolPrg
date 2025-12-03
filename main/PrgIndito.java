@@ -1,11 +1,11 @@
 
 package main;
 
-import vezerlo.Program;
+import vezerlo.ProgramVezerlo;
 
 public class PrgIndito {
     public static void main(String[] args) {
-        Program program = new Program();
+        ProgramVezerlo program = new ProgramVezerlo();
         program.futtat();
     }
 }

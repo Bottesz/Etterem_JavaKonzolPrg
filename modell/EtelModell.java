@@ -2,11 +2,11 @@
 package modell;
 
 
-public class Etel {
+public class EtelModell {
     private String nev;
     private int ar;
 
-    public Etel(String nev, int ar) {
+    public EtelModell(String nev, int ar) {
         this.nev = nev;
         this.ar = ar;
     }

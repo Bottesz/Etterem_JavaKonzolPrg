@@ -2,17 +2,17 @@
 package nezet;
 
 import java.util.ArrayList;
-import modell.Asztal;
-import modell.Etel;
+import modell.AsztalModell;
+import modell.EtelModell;
 
-public class EtelKiiro {
+public class EtelKiiroNezet {
     
-    public void kiir(ArrayList<Asztal> asztalok) {
-        for (Asztal a : asztalok) {
+    public void kiir(ArrayList<AsztalModell> asztalok) {
+        for (AsztalModell a : asztalok) {
             System.out.println(a.getNev());
             System.out.println("-----------------------");
 
-            for (Etel e : a.getEtelek()) {
+            for (EtelModell e : a.getEtelek()) {
                 System.out.println(e.getNev() + " - " + e.getAr() + " Ft");
             }
 
