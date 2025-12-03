@@ -8,9 +8,9 @@ public class Asztal {
     private String nev;
     private ArrayList<Etel>etelek;
 
-    public Asztal(String nev, ArrayList<Etel> Etelek) {
+    public Asztal(String nev) {
         this.nev = nev;
-        this.etelek = Etelek;
+        this.etelek = new ArrayList<>();
     }
 
     public String getNev() {
